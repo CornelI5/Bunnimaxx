@@ -1,0 +1,163 @@
+BUNNIMAXX PROPRIETARY SOFTWARE LICENSE AGREEMENT
+
+Copyright (c) 2024 [CornelI5]. All Rights Reserved.
+
+This End User License Agreement ("Agreement") is a legal agreement between you 
+("User") and [YOUR USERNAME / REAL NAME] ("Licensor") for the use of BUNNIMAXX 
+software ("Software").
+
+BY INSTALLING, COPYING, OR OTHERWISE USING THIS SOFTWARE, YOU AGREE TO BE BOUND 
+BY ALL TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS 
+AGREEMENT, DO NOT INSTALL OR USE THE SOFTWARE.
+
+1. GRANT OF LICENSE
+
+Subject to the terms and conditions of this Agreement, Licensor grants you a 
+limited, non-exclusive, non-transferable, revocable license to use the compiled 
+binary version of the Software solely for personal, educational, and defensive 
+cybersecurity purposes.
+
+This license does not permit:
+- Use of the Software for any commercial purposes
+- Distribution, sublicensing, or transfer of the Software to third parties
+- Modification, adaptation, or creation of derivative works
+
+2. CLOSED SOURCE & NO REVERSE ENGINEERING
+
+The source code of the Software is proprietary and confidential. You expressly 
+agree NOT to:
+
+a) Decompile, disassemble, reverse engineer, or otherwise attempt to derive the 
+   source code of the Software;
+b) Modify, translate, or create derivative works based on the Software;
+c) Remove, alter, or obscure any proprietary notices, labels, or marks on the 
+   Software;
+d) Use the Software in any manner that violates applicable local, national, or 
+   international laws or regulations.
+
+Any attempt to reverse engineer the Software shall be considered a material 
+breach of this Agreement and may result in immediate termination of your license 
+and potential legal action.
+
+3. NON-COMMERCIAL USE RESTRICTION
+
+You may NOT:
+
+a) Sell, lease, rent, loan, or otherwise transfer the Software for any fee or 
+   compensation;
+b) Use the Software for any commercial, business, or revenue-generating purposes;
+c) Incorporate the Software into any product or service intended for sale;
+d) Use the Software to provide services to third parties for compensation.
+
+The Software is provided strictly for non-commercial, personal, and educational 
+use only.
+
+4. ANTI-PLAGIARISM & ATTRIBUTION REQUIREMENTS
+
+You expressly agree NOT to:
+
+a) Claim the Software, or any part of its logic, design, user interface, or 
+   functionality, as your own creation;
+b) Remove or alter any copyright notices, watermarks, or attribution markers 
+   embedded in the Software;
+c) Publish, distribute, or present the Software (or derivatives thereof) without 
+   proper attribution to the original creator.
+
+If you mention, review, showcase, or reference this Software in any public 
+medium (including but not limited to videos, articles, social media posts, 
+presentations, or educational materials), you MUST:
+
+i)   Credit the original creator: [YOUR USERNAME / REAL NAME]
+ii)  Provide a direct link to the original repository or official source
+iii) Clearly state that the Software is proprietary and subject to this license
+
+Failure to comply with attribution requirements shall constitute a violation of 
+this Agreement.
+
+5. INTELLECTUAL PROPERTY RIGHTS
+
+All rights, title, and interest in and to the Software, including but not 
+limited to all copyrights, patents, trademarks, trade secrets, and other 
+intellectual property rights, shall remain solely with the Licensor.
+
+This Agreement does not grant you any rights to use the Licensor's trademarks, 
+trade names, logos, or other brand identifiers.
+
+6. DISCLAIMER OF WARRANTIES
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+THE LICENSOR DOES NOT WARRANT THAT:
+a) The Software will meet your requirements or expectations;
+b) The Software will be uninterrupted, timely, secure, or error-free;
+c) The results obtained from the use of the Software will be accurate or 
+   reliable;
+d) Any errors in the Software will be corrected.
+
+YOU ASSUME FULL RESPONSIBILITY FOR THE INSTALLATION, USE, AND RESULTS OBTAINED 
+FROM THE SOFTWARE.
+
+7. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+BUSINESS INTERRUPTION) ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE, 
+EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+YOU AGREE TO INDEMNIFY AND HOLD HARMLESS THE LICENSOR FROM ANY CLAIMS, DAMAGES, 
+OR LIABILITIES ARISING FROM YOUR USE OF THE SOFTWARE OR VIOLATION OF THIS 
+AGREEMENT.
+
+8. TERMINATION
+
+This Agreement is effective until terminated. Your rights under this Agreement 
+will terminate automatically without notice if you fail to comply with any term 
+of this Agreement.
+
+Upon termination, you must:
+a) Immediately cease all use of the Software;
+b) Destroy all copies of the Software in your possession or control;
+c) Certify in writing to the Licensor that you have complied with these 
+   obligations.
+
+Sections 2, 3, 4, 5, 6, 7, and 9 shall survive any termination of this 
+Agreement.
+
+9. GOVERNING LAW & DISPUTE RESOLUTION
+
+This Agreement shall be governed by and construed in accordance with the laws 
+of [Indonesia], without regard to its conflict of law 
+principles.
+
+Any disputes arising out of or in connection with this Agreement shall be 
+resolved through good faith negotiation. If negotiation fails, disputes shall 
+be submitted to the exclusive jurisdiction of the courts located in 
+[Yogyakarta/Indonesia].
+
+
+10. ENTIRE AGREEMENT
+
+This Agreement constitutes the entire agreement between you and the Licensor 
+regarding the Software and supersedes all prior or contemporaneous understandings, 
+agreements, representations, and warranties, both written and oral.
+
+If any provision of this Agreement is held to be invalid or unenforceable, such 
+provision shall be changed and interpreted to accomplish the objectives of such 
+provision to the greatest extent possible under applicable law, and the remaining 
+provisions shall continue in full force and effect.
+
+11. CONTACT INFORMATION
+
+For questions, permission requests, or licensing inquiries, please contact:
+
+Email: [kenzoyooo0@gmail.com]
+GitHub: [https://github.com/CornelI5]
+
+
+BY USING THIS SOFTWARE, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, 
+UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS.
+
+Copyright © 2026 [CornelI5]. All Rights Reserved.
