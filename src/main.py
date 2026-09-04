@@ -5,6 +5,7 @@ import threading
 import wmi
 from pynput import keyboard
 from wifi_radar import WifiRadar
+from hardware_guard import HardwareGuard
 
 class BunnimaxxDeskUSB:
     def __init__(self):
@@ -14,17 +15,20 @@ class BunnimaxxDeskUSB:
         self.user32 = ctypes.windll.user32
         self.c = wmi.WMI()
         
-        # Setup UI
         self.root = tk.Tk()
-        self.root.title("BUNNIMAXX :: DESKUSB SHIELD")
-        self.root.geometry("500x300")
+        self.root.title("BUNNIMAXX :: FULL SHIELD")
+        self.root.geometry("600x400")
         self.root.configure(bg="#1a1a1a")
         self.root.attributes('-topmost', True)
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         
         self.label = tk.Label(
             self.root,
-            text="BUNNIMAXX SHIELD ACTIVE\n\n[USB] Monitoring HID Input...\n[WIFI] Scanning for threats...\n\nWaiting for anomalies.",
+            text="BUNNIMAXX SHIELD ACTIVE\n\n"
+                 "[USB] Monitoring HID Input...\n"
+                 "[WIFI] Scanning for threats...\n"
+                 "[HARDWARE] Scanning NFC/RFID/U2F/IR...\n\n"
+                 "Waiting for anomalies.",
             fg="#FF8C00",
             bg="#1a1a1a",
             font=("Courier", 11, "bold"),
@@ -32,13 +36,14 @@ class BunnimaxxDeskUSB:
         )
         self.label.pack(expand=True)
         
-        # Start keyboard listener
         self.listener = keyboard.Listener(on_press=self.on_press)
         self.listener.start()
         
-        # Start Wi-Fi Radar
         self.wifi_radar = WifiRadar(callback=self.on_wifi_threat)
         self.wifi_radar.start()
+        
+        self.hardware_guard = HardwareGuard(callback=self.on_hardware_threat)
+        self.hardware_guard.start()
         
         self.root.mainloop()
 
@@ -61,6 +66,43 @@ class BunnimaxxDeskUSB:
         else:
             self.root.after(0, self.reset_ui)
 
+    def on_hardware_threat(self, threats, neutralized):
+        """
+        Callback dari HardwareGuard kalau ada device mencurigakan
+        """
+        if threats:
+            self.root.after(0, lambda: self.show_hardware_alert(threats, neutralized))
+        else:
+            self.root.after(0, self.reset_ui)
+
+    def show_hardware_alert(self, threats, neutralized):
+        """
+        Tampilkan alert hardware threat di UI
+        """
+        self.is_locked = True
+        
+        threat_messages = []
+        for threat in threats:
+            threat_messages.append(threat['message'])
+        
+        alert_text = "\n".join(threat_messages[:2]) 
+        
+        if neutralized:
+            neutralized_text = "\n DISABLED: " + ", ".join(neutralized)
+        else:
+            neutralized_text = ""
+        
+        self.root.configure(bg="#FF4500")
+        self.label.config(
+            text=f" HARDWARE THREAT DETECTED \n\n{alert_text}\n{neutralized_text}\n\n"
+                 "NFC/RFID/U2F/IR device blocked.\n"
+                 "System protected. 🐰",
+            fg="white",
+            bg="#FF4500"
+        )
+        print(f"[BUNNIMAXX] Hardware Threat: {threats}")
+        print(f"[BUNNIMAXX] Neutralized: {neutralized}")
+
     def show_wifi_alert(self, threats):
         self.is_locked = True
         
@@ -75,7 +117,7 @@ class BunnimaxxDeskUSB:
             text=f" WI-FI THREAT DETECTED \n\n{alert_text}\n\n"
                  "ESP32/Flipper Zero nearby?\n"
                  "Check your Wi-Fi connections.\n\n"
-                 "Stay safe.",
+                 "Stay safe. ",
             fg="white",
             bg="#FF4500"
         )
@@ -99,7 +141,7 @@ class BunnimaxxDeskUSB:
             return
             
         self.is_locked = True
-        print("[BUNNIMAXX] BADUSB DETECTED! INITIATING PWNED FOR THE ANOMALIES...")
+        print("[BUNNIMAXX] BADUSB DETECTED! INITIATING PSYCHOLOGICAL WARFARE...")
         
         self.eject_suspicious_usb()
         
@@ -112,11 +154,7 @@ class BunnimaxxDeskUSB:
         
         psych_label = tk.Label(
             self.psych_window,
-            text="the fucking anomalies is pwned.\n\n"
-                 "Your BadUSB payload was intercepted.\n"
-                 "Your device has been ejected.\n"
-                 "good safe                 \n\n"
-                 " BUNNIMAXX SHIELD\n\n"
+            text=" BUNNIMAXX SHIELD \n\n"
                  "This window will disappear in 20 seconds...",
             fg="black",
             bg="#FF8C00",
@@ -125,13 +163,13 @@ class BunnimaxxDeskUSB:
         )
         psych_label.pack(expand=True)
         
-        print("[BUNNIMAXX] Window activated. 20 seconds countdown...")
+        print("[BUNNIMAXX]  Window proggress activated. 20 seconds countdown...")
         
         threading.Thread(target=self.auto_close_psych_window, daemon=True).start()
 
     def auto_close_psych_window(self):
         time.sleep(20)
-        print("[BUNNIMAXX] Window closed. System safe.")
+        print("[BUNNIMAXX] Psychological Warfare Window closed. System safe.")
         self.root.after(0, self.close_psych_window)
 
     def close_psych_window(self):
@@ -146,19 +184,29 @@ class BunnimaxxDeskUSB:
         self.keystroke_times = []
         self.root.configure(bg="#1a1a1a")
         self.label.config(
-            text="BUNNIMAXX SHIELD ACTIVE\n\n[USB] Monitoring HID Input...\n[WIFI] Scanning for threats...\n\nWaiting for a fucking anomalies.",
+            text="BUNNIMAXX SHIELD ACTIVE\n\n"
+                 "[USB] Monitoring HID Input...\n"
+                 "[WIFI] Scanning for threats...\n"
+                 "[HARDWARE] Scanning NFC/RFID/U2F/IR...\n\n"
+                 "Waiting for anomalies.",
             fg="#FF8C00",
             bg="#1a1a1a"
         )
 
     def on_closing(self):
         self.wifi_radar.stop()
+        self.hardware_guard.stop()
         self.listener.stop()
         self.root.destroy()
 
 if __name__ == "__main__":
     print("========================================")
-    print("               BUNNIMAXX                ")
+    print(" BUNNIMAXX :: FULL SHIELD")
+    print("========================================")
+    print("Modules:")
+    print("  - USB Defense (BadUSB Detection)")
+    print("  - Wi-Fi Radar (ESP32/Deauth)")
+    print("  - Hardware Guard (NFC/RFID/U2F/IR)")
     print("========================================")
     print("NOTE: Run as Administrator for USB eject.")
     print("========================================")
