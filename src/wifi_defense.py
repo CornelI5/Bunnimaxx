@@ -13,9 +13,6 @@ class WifiDefense:
         self.defense_active = False
         
     def get_current_connection(self):
-        """
-        Return: dict dengan SSID, BSSID, status
-        """
         try:
             result = subprocess.run(
                 ['netsh', 'wlan', 'show', 'interfaces'],
@@ -56,9 +53,6 @@ class WifiDefense:
             return {'ssid': None, 'bssid': None, 'status': 'disconnected'}
     
     def set_trusted_network(self, ssid=None, bssid=None):
-        """
-set to real router
-        """
         if ssid:
             self.trusted_ssid = ssid
         if bssid:
@@ -72,9 +66,6 @@ set to real router
                 print(f"[WIFI DEFENSE] Trusted network set: {self.trusted_ssid} ({self.trusted_bssid})")
     
     def connect_to_network(self, ssid):
-        """
-        Connect to Wi-Fi network
-        """
         try:
             print(f"[WIFI DEFENSE] Connecting to {ssid}...")
             result = subprocess.run(
@@ -97,9 +88,6 @@ set to real router
             return False
     
     def disconnect_from_network(self):
-        """
-        Disconnect from Wi-Fi
-        """
         try:
             result = subprocess.run(
                 ['netsh', 'wlan', 'disconnect'],
@@ -121,29 +109,19 @@ set to real router
             return False
     
     def detect_deauth_attack(self, current_info):
-        """
-        Detect kalau Wi-Fi lo tiba-tiba disconnect (tanda deauth attack)
-        """
         if current_info['status'] == 'disconnected' and self.is_connected:
             return True
         return False
     
     def detect_evil_twin(self, current_info):
-        """
-        Detect kalau lo connect ke Evil Twin (SSID sama, BSSID beda)
-        """
         if current_info['ssid'] == self.trusted_ssid and current_info['bssid'] != self.trusted_bssid:
             return True
         return False
     
     def defend_and_reconnect(self):
-        """
-        Counter-measure: disconnect dari Evil Twin, reconnect ke router asli
-        """
         print("[WIFI DEFENSE]  DEFENSE ACTIVATED!")
         
         self.disconnect_from_network()
-        
         time.sleep(2)
         
         if self.trusted_ssid:
@@ -172,9 +150,6 @@ set to real router
                     })
     
     def monitor_loop(self):
-        """
-        Loop utama buat monitor koneksi Wi-Fi
-        """
         self.is_running = True
         check_interval = 2
         
@@ -201,16 +176,10 @@ set to real router
             time.sleep(check_interval)
     
     def start(self):
-        """
-        start monitoring
-        """
         thread = threading.Thread(target=self.monitor_loop, daemon=True)
         thread.start()
         print("[WIFI DEFENSE] Started monitoring Wi-Fi connection...")
     
     def stop(self):
-        """
-        Stop monitoring
-        """
         self.is_running = False
         print("[WIFI DEFENSE] Stopped.")
