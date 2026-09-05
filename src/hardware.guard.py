@@ -12,12 +12,9 @@ class HardwareGuard:
         self.blacklist_keywords = [
             'acr122', 'pn532', 'proxmark', 'rcs', 'contactless', 'nfc reader',
             'rfid reader', 'smart card reader', 'iso14443', 'mifare',
-            
             'yubikey', 'fido', 'u2f', 'security key', 'solokey', 'nitrokey',
-            
             'infrared', 'ir receiver', 'ir transmitter', 'ir blaster',
             'flipper', 'microlord',
-            
             'badusb', 'rubber ducky', 'teensy', 'digispark',
         ]
         
@@ -26,10 +23,6 @@ class HardwareGuard:
         ]
     
     def scan_usb_devices(self):
-        """
-        Scan semua USB device yang terkoneksi via WMI
-        Return list of device info
-        """
         devices = []
         try:
             for device in self.c.Win32_PnPEntity():
@@ -48,9 +41,6 @@ class HardwareGuard:
         return devices
     
     def is_device_suspicious(self, device_info):
-        """
-        Cek apakah device mencurigakan berdasarkan blacklist
-        """
         device_name = device_info['name'].lower()
         device_id = device_info['device_id'].lower()
         manufacturer = device_info['manufacturer'].lower()
@@ -70,9 +60,6 @@ class HardwareGuard:
         return False
     
     def disable_device(self, device_info):
-        """
-        Disable device mencurigakan via WMI
-        """
         try:
             device_id = device_info['device_id']
             
@@ -91,9 +78,6 @@ class HardwareGuard:
         return False
     
     def detect_threats(self):
-        """
-        Return list of threats
-        """
         devices = self.scan_usb_devices()
         threats = []
         
@@ -111,9 +95,6 @@ class HardwareGuard:
         return threats
     
     def neutralize_threats(self, threats):
-        """
-        Disable semua device yang terdeteksi sebagai threat
-        """
         neutralized = []
         for threat in threats:
             device = threat['device']
@@ -123,9 +104,6 @@ class HardwareGuard:
         return neutralized
     
     def monitor_loop(self):
-        """
-        Loop utama buat monitor hardware terus-menerus
-        """
         self.is_running = True
         scan_interval = 3
         
@@ -134,7 +112,6 @@ class HardwareGuard:
             
             if threats and not self.threat_detected:
                 self.threat_detected = True
-                
                 neutralized = self.neutralize_threats(threats)
                 
                 if self.callback:
@@ -148,16 +125,10 @@ class HardwareGuard:
             time.sleep(scan_interval)
     
     def start(self):
-        """
-        Mulai monitoring di thread terpisah
-        """
         thread = threading.Thread(target=self.monitor_loop, daemon=True)
         thread.start()
         print("[HARDWARE GUARD] Started monitoring USB devices (NFC/RFID/U2F/IR)...")
     
     def stop(self):
-        """
-        Stop monitoring
-        """
         self.is_running = False
         print("[HARDWARE GUARD] Stopped.")
