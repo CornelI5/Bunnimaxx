@@ -28,7 +28,7 @@ class AntiBitlocker:
             return None
     
     def detect_bitlocker_bypass(self):
-        """Detect upaya bypass BitLocker"""
+        """Detect bypass BitLocker"""
         threats = []
         
         # Check for suspicious processes that might try to bypass BitLocker
