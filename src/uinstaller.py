@@ -7,9 +7,9 @@ import time
 
 class WindowsNativeUninstaller:
     def __init__(self):
-        self.app_name = "Bunnimaxx"
-        self.service_name = "BunnimaxxService"
-        self.exe_path = self._get_bunnimaxx_path()
+        self.app_name = "Inversert"
+        self.service_name = "InversertService"
+        self.exe_path = self._get_Inversert_path()
         
         self.user32 = ctypes.windll.user32
         self.credui = ctypes.windll.credui
@@ -17,7 +17,7 @@ class WindowsNativeUninstaller:
         
     def _get_bunnimaxx_path(self):
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        return os.path.join(current_dir, "Bunnimaxx.exe")
+        return os.path.join(current_dir, "Inversert.exe")
     
     def check_admin_privilege(self):
         try:
@@ -63,7 +63,7 @@ class WindowsNativeUninstaller:
         cred_info.cbSize = ctypes.sizeof(CREDUI_INFO)
         cred_info.hwndParent = 0
         cred_info.pszMessageText = "Enter your Windows PIN or password to uninstall Bunnimaxx"
-        cred_info.pszCaptionText = "Bunnimaxx Uninstaller - Authentication Required"
+        cred_info.pszCaptionText = "Inversert Uninstaller - Authentication Required"
         cred_info.hbmBanner = 0
         
         max_username = 256
@@ -82,7 +82,7 @@ class WindowsNativeUninstaller:
             ctypes.byref(password),
             max_password,
             ctypes.byref(save),
-            "Bunnimaxx Uninstaller",
+            "Inversert Uninstaller",
             "",
             0,
             flags
@@ -105,7 +105,7 @@ class WindowsNativeUninstaller:
         message = (
             "Windows protected your PC\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-            "Bunnimaxx is a security protection software.\n"
+            "Inversert is a security protection software.\n"
             "Uninstalling it will remove all protection layers.\n\n"
             "Are you sure you want to continue?\n\n"
             "Click 'Yes' to uninstall or 'No' to cancel."
@@ -114,7 +114,7 @@ class WindowsNativeUninstaller:
         result = self.user32.MessageBoxW(
             0,
             message,
-            "Bunnimaxx Uninstaller - Security Warning",
+            "Inversert Uninstaller - Security Warning",
             MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2
         )
         
@@ -174,7 +174,7 @@ class WindowsNativeUninstaller:
                 else:
                     print(f"[UNINSTALLER]   File protection reset failed")
             else:
-                print(f"[UNINSTALLER]   Bunnimaxx.exe not found")
+                print(f"[UNINSTALLER]   Inversert.exe not found")
                 
         except Exception as e:
             print(f"[UNINSTALLER]   File protection error: {e}")
@@ -220,7 +220,7 @@ class WindowsNativeUninstaller:
         print(" UNINSTALLATION COMPLETE")
         print("=" * 60)
         print()
-        print("Bunnimaxx has been completely removed from your system.")
+        print("Inversert has been completely removed from your system.")
         print("You can now manually delete this uninstaller file.")
         print()
         input("Press Enter to exit...")
