@@ -21,7 +21,7 @@ class AntiKeylogger:
         ]
         
     def detect_keyboard_hooks(self):
-        """Detect process yang hook keyboard API"""
+        """Detect process keyboard API"""
         threats = []
         
         try:
