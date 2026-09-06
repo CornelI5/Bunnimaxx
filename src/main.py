@@ -26,7 +26,7 @@ class BunnimaxxDeskUSB:
         self.c = wmi.WMI()
         
         self.root = tk.Tk()
-        self.root.title("BUNNIMAXX 2.0 :: ULTIMATE SHIELD")
+        self.root.title("INVERSERT :: NORMAL DEFENSE")
         self.root.geometry("700x500")
         self.root.configure(bg="#1a1a1a")
         self.root.attributes('-topmost', True)
@@ -45,7 +45,7 @@ class BunnimaxxDeskUSB:
                  "[ANTI-CRYPTOJACKING] Mining shield active...\n"
                  "[ANTI-EXFILTRATION] Data theft guard active...\n"
                  "[ANTI-BITLOCKER] Encryption protection active...\n"
-                 "[PERSISTENT] McAfee-style defense active...\n\n"
+                 "[PERSISTENT] Defense active...\n\n"
                  "All systems operational. Waiting for anomalies.",
             fg="#FF8C00",
             bg="#1a1a1a",
@@ -103,7 +103,7 @@ class BunnimaxxDeskUSB:
         speed = len(self.keystroke_times)
         
         if speed >= self.threshold:
-            self.root.after(0, self.trigger_psychological_warfare)
+            self.root.after(0, self.trigger_Inversert_Shield)
 
     def on_wifi_threat(self, threats):
         if threats:
@@ -122,7 +122,7 @@ class BunnimaxxDeskUSB:
             self.root.after(0, self.reset_ui)
 
     def on_general_threat(self, threat):
-        """Handle threats dari semua module baru"""
+        """Handle all threats"""
         self.root.after(0, lambda: self.show_general_alert(threat))
 
     def show_general_alert(self, threat):
@@ -134,7 +134,7 @@ class BunnimaxxDeskUSB:
             fg="white",
             bg="#FF4500"
         )
-        print(f"[BUNNIMAXX] Threat detected: {threat}")
+        print(f"[INVERSERT] Threat detected: {threat}")
         
         threading.Thread(target=self.auto_reset_after_delay, args=(15,), daemon=True).start()
 
@@ -147,7 +147,7 @@ class BunnimaxxDeskUSB:
             fg="white",
             bg="#FF4500"
         )
-        print(f"[BUNNIMAXX] Wi-Fi Defense Alert: {alert}")
+        print(f"[INVERSERT] Wi-Fi Defense Alert: {alert}")
         
         threading.Thread(target=self.auto_reset_after_delay, args=(10,), daemon=True).start()
 
@@ -177,7 +177,7 @@ class BunnimaxxDeskUSB:
             fg="white",
             bg="#FF4500"
         )
-        print(f"[BUNNIMAXX] Hardware Threat: {threats}")
+        print(f"[INVERSERT] Hardware Threat: {threats}")
 
     def show_wifi_alert(self, threats):
         self.is_locked = True
@@ -197,27 +197,27 @@ class BunnimaxxDeskUSB:
             fg="white",
             bg="#FF4500"
         )
-        print(f"[BUNNIMAXX] Wi-Fi Threat: {threats}")
+        print(f"[INVERSERT] Wi-Fi Threat: {threats}")
 
     def eject_suspicious_usb(self):
         try:
             for device in self.c.Win32_PnPEntity():
                 if device.Name and "HID" in str(device.Name) and "Keyboard" in str(device.Name):
-                    print(f"[BUNNIMAXX] Found HID Device: {device.Name} | ID: {device.DeviceID}")
+                    print(f"[INVERSERT] Found HID Device: {device.Name} | ID: {device.DeviceID}")
                     result = device.Disable()
                     if result[0] == 0:
-                        print(f"[BUNNIMAXX]  Device DISABLED: {device.Name}")
+                        print(f"[INVERSERT]  Device DISABLED: {device.Name}")
                     else:
-                        print(f"[BUNNIMAXX]  Failed to disable: {device.Name} (Code: {result[0]})")
+                        print(f"[INVERSERT]  Failed to disable: {device.Name} (Code: {result[0]})")
         except Exception as e:
-            print(f"[BUNNIMAXX] Error during USB eject: {e}")
+            print(f"[INVERSERT] Error during USB eject: {e}")
 
     def trigger_psychological_warfare(self):
         if self.is_locked:
             return
             
         self.is_locked = True
-        print("[BUNNIMAXX]  BADUSB DETECTED! INITIATING IDK ANTIVIRUS...")
+        print("[INVERSERT]  BADUSB DETECTED! INITIATING IDK ANTIVIRUS...")
         
         self.eject_suspicious_usb()
         
@@ -233,7 +233,7 @@ class BunnimaxxDeskUSB:
             text="Your BadUSB payload was intercepted.\n"
                  "Your device has been ejected.\n"
                  "Your skill issue is confirmed.\n\n"
-                 " BUNNIMAXX 2.0 SHIELD \n\n"
+                 " INVERSERT 2.0 SHIELD \n\n"
                  "This window will disappear in 20 seconds...",
             fg="black",
             bg="#FF8C00",
@@ -242,13 +242,13 @@ class BunnimaxxDeskUSB:
         )
         psych_label.pack(expand=True)
         
-        print("[BUNNIMAXX] Psychological Warfare Window activated. 20 seconds countdown...")
+        print("[INVERSERT] Shield Window activated. 20 seconds countdown...")
         
         threading.Thread(target=self.auto_close_psych_window, daemon=True).start()
 
     def auto_close_psych_window(self):
         time.sleep(20)
-        print("[BUNNIMAXX] Psychological Warfare Window closed. System safe.")
+        print("[INVERSERT] Shield Window closed. System safe.")
         self.root.after(0, self.close_psych_window)
 
     def close_psych_window(self):
@@ -263,7 +263,7 @@ class BunnimaxxDeskUSB:
         self.keystroke_times = []
         self.root.configure(bg="#1a1a1a")
         self.label.config(
-            text="BUNNIMAXX 2.0 :: ULTIMATE BLACKHAT NIGHTMARE\n\n"
+            text="INVERSERT :: NORMAL DEFENSE\n\n"
                  "[USB] Monitoring HID Input...\n"
                  "[WIFI] Scanning for threats...\n"
                  "[HARDWARE] Scanning NFC/RFID/U2F/IR...\n"
@@ -274,14 +274,13 @@ class BunnimaxxDeskUSB:
                  "[ANTI-CRYPTOJACKING] Mining shield active...\n"
                  "[ANTI-EXFILTRATION] Data theft guard active...\n"
                  "[ANTI-BITLOCKER] Encryption protection active...\n"
-                 "[PERSISTENT] McAfee-style defense active...\n\n"
+                 "[PERSISTENT] Inversert defense active...\n\n"
                  "All systems operational. Waiting for anomalies.",
             fg="#FF8C00",
             bg="#1a1a1a"
         )
 
     def on_closing(self):
-        # Stop semua module
         self.wifi_radar.stop()
         self.wifi_defense.stop()
         self.hardware_guard.stop()
@@ -297,8 +296,8 @@ class BunnimaxxDeskUSB:
 
 if __name__ == "__main__":
     print("=" * 60)
-    print(" BUNNIMAXX 2.0 :: ULTIMATE BLACKHAT NIGHTMARE")
-    print(" Mode: FULL SPECTRUM DEFENSE")
+    print(" INVERSERT ")
+    print(" Mode: NORMAL DEFENSE")
     print("=" * 60)
     print("Modules:")
     print("  - USB Defense (BadUSB Detection)")
@@ -312,8 +311,8 @@ if __name__ == "__main__":
     print("  - Anti-Cryptojacking (Mining Shield)")
     print("  - Anti-Data Exfiltration (Theft Guard)")
     print("  - Anti-Bitlocker v3 (Encryption Protection)")
-    print("  - Persistent Defense (McAfee-style)")
+    print("  - Persistent Defense ")
     print("=" * 60)
     print("NOTE: Run as Administrator for full functionality.")
     print("=" * 60)
-    app = BunnimaxxDeskUSB()
+    app = InversertDeskUSB()
