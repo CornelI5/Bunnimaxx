@@ -7,7 +7,7 @@ import time
 import threading
 
 class PersistentDefense:
-    def __init__(self, app_name="Bunnimaxx"):
+    def __init__(self, app_name="Inversert"):
         self.app_name = app_name
         self.exe_path = os.path.abspath(sys.argv[0])
         self.service_name = f"{app_name}Service"
@@ -109,7 +109,7 @@ def uninstall():
         return
     
     print("=" * 50)
-    print("BUNNIMAXX UNINSTALLER")
+    print("Inversert UNINSTALLER")
     print("=" * 50)
     print()
     
@@ -121,7 +121,7 @@ def uninstall():
         return
     
     print()
-    print("  WARNING: This will completely remove Bunnimaxx")
+    print("  WARNING: This will completely remove Inversert")
     confirm = input("Are you sure? (yes/no): ")
     
     if confirm.lower() != 'yes':
@@ -131,15 +131,15 @@ def uninstall():
     
     print()
     print("Removing Windows Service...")
-    subprocess.run(['sc', 'stop', 'BunnimaxxService'], capture_output=True)
-    subprocess.run(['sc', 'delete', 'BunnimaxxService'], capture_output=True)
+    subprocess.run(['sc', 'stop', 'InversertService'], capture_output=True)
+    subprocess.run(['sc', 'delete', 'InversertService'], capture_output=True)
     
     print("Removing Registry entries...")
     try:
         key_path = r"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key_path, 0, winreg.KEY_SET_VALUE) as key:
             try:
-                winreg.DeleteValue(key, "Bunnimaxx")
+                winreg.DeleteValue(key, "Inversert")
                 print(" Registry entry removed")
             except:
                 print("  Registry entry not found")
@@ -147,19 +147,19 @@ def uninstall():
         print(f"  Registry cleanup failed: {e}")
     
     print("Removing file protection...")
-    exe_path = os.path.abspath(__file__).replace('uninstaller.py', 'Bunnimaxx.exe')
+    exe_path = os.path.abspath(__file__).replace('uninstaller.py', 'Inversert.exe')
     subprocess.run(['icacls', exe_path, '/reset'], capture_output=True)
     
     print()
     print(" Uninstallation complete!")
-    print("You can now manually delete Bunnimaxx.exe")
+    print("You can now manually delete Inversert.exe")
     input("Press Enter to exit...")
 
 if __name__ == "__main__":
     uninstall()
 '''
         
-        uninstaller_path = os.path.join(os.path.dirname(self.exe_path), 'uninstall_bunnimaxx.py')
+        uninstaller_path = os.path.join(os.path.dirname(self.exe_path), 'uninstall_inversert.py')
         
         try:
             with open(uninstaller_path, 'w') as f:
@@ -187,7 +187,7 @@ if __name__ == "__main__":
         print(" ALL PROTECTION LAYERS ACTIVATED")
         print("=" * 50)
         print()
-        print("   Bunnimaxx is now PROTECTED:")
+        print("   INVERSERT is now PROTECTED:")
         print("   Auto-starts on boot")
         print("   Protected from deletion")
         print("   Requires special uninstaller")
