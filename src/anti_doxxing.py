@@ -80,7 +80,7 @@ class AntiDoxxingShield:
                                                   f"Connecting to: {hostname}\n"
                                                   f"IP: {remote_ip}\n\n"
                                                   f"Possible IP logger/tracker.\n"
-                                                  f"Blocked by Bunnimaxx. "
+                                                  f"Blocked by Inversert. "
                                     })
                         except:
                             pass
@@ -129,7 +129,7 @@ class AntiDoxxingShield:
                                           f"Sensitive data found:\n" + 
                                           "\n".join(found_tags[:3]) +
                                           f"\n\nGPS location or device info exposed!\n"
-                                          f"Use Bunnimaxx Scrubber to clean. "
+                                          f"Use Inversert Scrubber to clean. "
                             })
                 except ImportError:
                     pass  # PIL not installed
@@ -288,7 +288,7 @@ class AntiDoxxingShield:
                             'message': f" HIGH OUTBOUND TRAFFIC!\n\n"
                                       f"Rate: {rate/1000:.2f} KB/s\n\n"
                                       f"Possible data exfiltration detected!\n"
-                                      f"Check running applications. 🛡️"
+                                      f"Check running applications. "
                         })
                         
         except Exception as e:
