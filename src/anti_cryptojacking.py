@@ -38,7 +38,7 @@ class AntiCryptojacking:
                                 'message': f" CRYPTOJACKING DETECTED!\n\n"
                                           f"Process: {proc_name}\n"
                                           f"PID: {proc.info['pid']}\n\n"
-                                          f"Laptop lo dipake buat mining!\n"
+                                          f"Your laptop is using for mining!\n"
                                           f"Auto-killing miner... "
                             })
                             
