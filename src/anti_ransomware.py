@@ -46,7 +46,6 @@ class AntiRansomware:
                     self.detector.file_changes.append(time.time())
     
     def detect_mass_encryption(self):
-        """Detect pola enkripsi massal"""
         current_time = time.time()
         
         # Clean old entries (older than 10 seconds)
@@ -66,7 +65,6 @@ class AntiRansomware:
         return None
     
     def detect_suspicious_processes(self):
-        """Detect process yang mencurigakan"""
         threats = []
         
         suspicious_keywords = [
